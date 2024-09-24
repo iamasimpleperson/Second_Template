@@ -44,7 +44,7 @@ class _MainAppState extends State<MainApp> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "StudyPal",
+                      "Hello I am Yazu.",
                       style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
