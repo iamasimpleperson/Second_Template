@@ -56,7 +56,7 @@ class DetailPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Container(
-                  height: 230, // Adjusted height for better button layout
+                  height: 230,
                   decoration: BoxDecoration(
                     color: const Color(0xff7382c2),
                     borderRadius: BorderRadius.circular(30),

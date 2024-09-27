@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 class TeacherPages extends StatelessWidget {
   const TeacherPages({super.key});
 
-  @override
+  @override 
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xff7382c2),
         title: const Center(
           child: Text(
-            "Data",
+            "List of Teacher",
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
@@ -29,11 +29,9 @@ class TeacherPages extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 color: const Color.fromARGB(255, 251, 0, 0),
-                border: const Border(
-                  left: BorderSide(width: 2),
-                  top: BorderSide(width: 2),
-                  right: BorderSide(width: 2),
-                  bottom: BorderSide(width: 2),
+                border: Border.all(
+                  color: Colors.black,
+                  width: 2.0,
                 ),
               ),
               child: ClipRRect(
@@ -49,21 +47,70 @@ class TeacherPages extends StatelessWidget {
         toolbarHeight: 60.0,
       ),
       body: SingleChildScrollView(
-        child: Container(
-          child: Column(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const SizedBox(height: 30),
+            buildTeacherCard('assets/Bott.jpg', 'Mr. Bott'),
+            buildTeacherCard('assets/Say.png', 'Ms. Rita'),
+            buildTeacherCard('assets/Rita.png', 'Ms. Kolab'),
+            buildTeacherCard('assets/sathya.jpg', 'Mr. Handsome'),
+            buildTeacherCard('assets/nith.png', 'Mr. Richo'),
+            buildTeacherCard('assets/R.jpg', 'Ms. Romdoul'),
+          ],
+        ),
+      ),
+    );
+  }
+
+
+  Widget buildTeacherCard(String imagePath, String teacherName) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+      child: Container(
+        height: 80,
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: const Color.fromARGB(255, 0, 0, 0),
+            width: 1.0,
+          ),
+          color: const Color.fromARGB(255, 255, 255, 255),
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        child: Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Container(
-                height: 100,
-                decoration: BoxDecoration(
-                  color: Colors.greenAccent
-                 
+              ClipRRect(
+                borderRadius: BorderRadius.circular(40.0), // Rounded corners
+                child: Image.asset(
+                  imagePath,
+                  width: 50, 
+                  height: 50,
+                  fit: BoxFit.contain,
                 ),
+              ),
+              Text(
+                teacherName,
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(width: 40),
+              Row(
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.call),
+                    onPressed: () {},
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.message),
+                    onPressed: () {},
+                  ),
+                ],
               )
             ],
           ),
         ),
       ),
-      
     );
   }
 }
